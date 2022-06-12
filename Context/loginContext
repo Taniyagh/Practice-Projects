@@ -1,0 +1,21 @@
+import React, { Component, createContext } from 'react';
+
+export const LoginContext = createContext();
+
+class LoginContextProvider extends Component {
+    state = { 
+        login : false
+     }
+     changeLogin=()=>{
+        this.setState({login:!this.state.login})
+     }
+    render() { 
+        return ( 
+            <LoginContext.Provider value ={{...this.state,changeLogin:this.changeLogin}}>
+                {this.props.children}
+            </LoginContext.Provider>
+         );
+    }
+}
+ 
+export default LoginContextProvider;
