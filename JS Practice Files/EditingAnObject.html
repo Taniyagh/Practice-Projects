@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title> different inputs </title>
+      <script>
+        function changepersonstatus(chk)
+        {
+            if (chk.checked)
+                document.getElementById('prsNames').disabled = true
+            else
+                document.getElementById('prsNames').disabled = false               
+        }
+
+        function personchangeitem()
+        {
+       //   alert(document.getElementById('prsNames').selectedIndex)
+        }
+
+        function getPersonsLength()
+        {                                                                                                           
+        alert(document.getElementById('prsNames').length)
+        }
+
+        function changeLength()
+        {
+            document.getElementById('prsNames').size=6
+        }
+
+        function changeOption()
+        {
+            var slt= docutment.getElementById('prsNames')
+            var name=prompt("Enter your name:")
+            if (confirm("Are you sure?"))
+                slt.options [slt.selectedIndex]=name
+        }
+
+        function removeOption()
+        {
+            var slt=document.getElementById('prsNames')
+            if (confirm('Are you sure?'))
+            slt.remove(slt.selectedIndex)
+        }
+
+
+      </script>
+
+    </head>
+    <body>
+        <input type="checkbox" onclick="changepersonstatus(this)" />
+        <input type="button" value="persons length" onclick="getPersonsLength()" />
+        <input type="button" value="change length" onclick= "changeLength()" />
+        <input type="button" value= "change option" onclick="changeOption()" />
+        <input type="button" value= "removeOption"  onclick="removeOption()" />
+        <select id="prsNames" multiple onchange="personchangeitem()"/>
+            <option value="1"> Ali </option>
+            <option value="2"> Reza  </option>
+            <option value="3"> Mohammad </option>
+            <option value="4"> Morteza </option>
+        </select>
+    </body>
+</html>

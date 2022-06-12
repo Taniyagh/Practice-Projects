@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>InputValidation1</title>
+        <script src="Prc01.js"></script>
+        <link rel="stylesheet" href="Prc01.css"
+    </head>
+    <body>
+        <input type="text" id="username" placeholder="username"/>
+        <br /> <br />
+        <input type="password" id="password" placeholder="password"/>
+        <button onclick="textInputHandler()"> getValuetextInput </button>
+        <hr />
+        <input type="radio" name="fruit" id="banana" value="banana" checked>banana</input>
+        <input type="radio" name="fruit" id="apple" value="apple">apple</input>
+        <button onclick="radioInputHandler()"> getValueRadioButton </button>
+        <hr />
+        <select id="selectbox">
+            <option value="banana">banana</option>
+            <option value="apple">apple</option>
+        </select>
+        <button onclick="selectOptionHandler()"> getValueSelectOption </button>
+        <hr />
+        <form name="Myform" action"#">
+            <lable for = "name">Name:</lable>
+            <input type="text" name="name" value="reza" />
+            <br/>
+            <lable for="color">Color:</lable>
+            <select id="color" name="name">
+                <option value="banana">banana</option>
+                <option value="apple">apple</option>
+            </select>
+        </form>
+    </body>
+</html>

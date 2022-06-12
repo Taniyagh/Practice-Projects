@@ -1,0 +1,47 @@
+﻿*{
+	box-sizing:border-box;
+}
+body
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align:center;
+	margin:0;
+	flex-direction:coloumn; 
+	font-size:18px;
+	min-height:100vh;
+	font-weight:bold;
+}
+button{
+	background-color:red;
+	color:#000000;
+	padding:1rem; 
+	border-radius:5px;
+	border:none;
+
+}
+.notification{
+	background-color:#fff;
+	width:500px;
+	padding:2rem;
+	border-radius:2px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3) ;
+	position:  relative;
+	transform:translatex(-300%);
+	transition: all 0.5s linear;
+
+}
+.notification button{
+	position:absolute;
+	right: 10px;
+	top:10px;
+	background-color:#fff;
+	padding:1.5rem;
+	color:#000000;
+	font-size:18px;
+}
+
+.notification.active{
+	transform:translatex(0%);
+}

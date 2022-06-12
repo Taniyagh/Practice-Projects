@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Fadein&out</title>
+        <script> 
+        let Id;
+        function fadeIn(){
+            Id=setInterval(hide,20)
+        }
+
+        function hide(){
+            let img=document.getElementById('img1')
+            let opacity=Number(window.getComputedStyle(img).getPropertyValue('opacity'));
+            if (opacity>0)
+            {
+                opacity=opacity-0.01;
+                img.style.opacity=opacity;
+            }else{
+                clearInterval(Id)
+            }
+        }
+
+        function fadeOut(){
+            Id=setInterval(show,20)
+        }
+
+        function show(){
+            let img=document.getElementById('img1')
+            let opacity=Number(window.getComputedStyle(img).getPropertyValue('opacity'));
+            if (opacity<1)
+            {
+                opacity=opacity+0.01;
+                img.style.opacity=opacity;
+            }else{
+                clearInterval(Id)
+            }
+
+        }
+        
+        
+        </script>
+    </head>
+    <body>
+        <button id="fadeInbtn"  onclick="fadeIn()">Fade in </button>
+        <hr />
+        <img src="Baby.jpg" height="300px" id='img1'>
+        <hr />
+        <button id="fadeOutnbtn"  onclick="fadeOut()">Fade out </button>
+    </body>
+</html>

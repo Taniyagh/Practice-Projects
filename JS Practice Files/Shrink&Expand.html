@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Shrink&Expand</title>
+        <script>
+            let Id;
+            let width=500;
+            let height=400;
+            let unit=2; 
+                function increase(){
+                    Id=setInterval(Expand,20)
+                }
+                function Expand(){
+
+                    if (width<600)
+                    {
+                        width=width+unit;       //new width
+                        document.getElementById('img1').width=width;
+                    }else
+                    {
+                        clearInterval(Id)
+                    }
+                    
+                    if (height<500)
+                    {
+                        height=height+unit;     //new height
+                        document.getElementById('img1').height=height;    
+                    }else
+                    {
+                        clearInterval(Id)
+                    }
+                    
+                }
+            
+                function decrease(){
+                    Id=setInterval(Shrink,20)
+                }
+
+                function Shrink(){
+                    if (width>500){
+                        width=width-unit;
+                        document.getElementById('img1').width=width;
+                    }else{
+                        clearInterval(Id)
+                    }
+                    if (height>400)
+                    {
+                        height=height-unit;
+                        document.getElementById('img1').height=height;
+                    }else{
+                        clearInterval(Id)
+                    }
+
+                }
+        </script>
+    </head>
+    <body>
+        <img src="Rose.jpg" id="img1" onmouseover="increase()" onmouseout="decrease()" width="500" height="400"/>
+    </body>
+</html>

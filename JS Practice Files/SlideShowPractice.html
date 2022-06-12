@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>SlideShowPractice</title>
+        <style>
+            div#Sliders img
+            {
+                width: 600px;
+                height: 450px;
+                display: none;
+            }
+
+            div#Sliders img:first-child
+            {
+                display:inline;
+            }
+        </style>
+        <script>
+            var index=0;
+            var fade= setInterval(function(){Fading()},100)
+            setInterval(function(){DisplaySlides()},4000)
+            function DisplaySlides()
+            {
+                var slides=document.getElementById('Sliders').getElementsByTagName('img')
+                ++index;
+
+                if (index==slides.length)
+                index=0;
+
+                if (index==0)
+                {
+                    slides[slides.length-1].style.display="none"
+                }
+                else
+                {
+                    slides[index-1].style.display="none"
+                }
+                slides[index].style.display="inline"
+             // slides[index].style.opacity=1;
+             // clearInterval(fade)
+             // fade= setInterval(function(){Fading()},100)
+            }
+            function Fading()
+            {
+                var slides=document.getElementById('Sliders').getElementsByTagName('img')
+                var opacity = slides[index].style.opacity >=0 ? slides[index].style.opacity : 1;
+               slides[index].style.opacity=opacity-0.025
+            }
+        </script>
+    </head>
+    <body>
+        <div id="Sliders">
+            <img src="Waves.jpg"/>
+            <img src="Baby.jpg"/>
+            <img src="Horse.jpg"/>
+            <img src= "Piano.jpg"/>
+            <img src= "Rose.jpg"/>
+        </div>
+    </body>
+</html>

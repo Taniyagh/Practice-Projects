@@ -1,0 +1,66 @@
+﻿
+<html>
+    <head lang="en" xmlns="http://www.w3.org/1999/xhtml">
+        <meta charset="utf-8" />
+        <style>
+            .small
+            {
+                width:200px;
+                height:200px;
+                margin-left:20px;
+            }
+
+            #mask
+            {
+                display:none; 
+                width:100%;
+                height:100%;
+                position:absolute;
+                z-index:999;
+                background-color:black;
+                opacity:0.6;                
+                left:0px;
+                top:0px;
+            }
+            
+        </style>
+        <script type="text/javascript">
+            function showOriginalPhoto(img)
+            {
+                var mask= document.getElementById('mask');
+                mask.style.display="block";
+                mask.style.top="0px"
+                mask.style.left="0px"
+                mask.style.zIndex="999"
+                var Orig=document.createElement('img');
+                Orig.src=img.src;
+                Orig.style.width="600px";
+                Orig.style.height="400px";
+                Orig.style.position="absolute";
+                Orig.style.zIndex="9999"
+                var w=window.innerWidth;
+                var h=window.innerHeight;
+                Orig.style.top=(h-400)/2;
+                Orig.style.left=(w-600)/2;
+
+
+                Orig.id='original';
+                document.body.appendChild(Orig)
+            }
+
+            function hidePhoto()
+            {
+                document.body.removeChild(document.getElementById('original'));
+                document.getElementById('mask').style.display="none";
+            }
+        </script>
+    </head>
+    <body >       
+        <img src="Baby.jpg" class="small"  onclick="showOriginalPhoto(this)"/>
+        <img src="Piano.jpg" class="small" onclick="showOriginalPhoto(this)"/>
+        <img src="Rose.jpg" class="small"  onclick="showOriginalPhoto(this)"/>
+        <div id="mask" onclick="hidePhoto()">
+        </div>
+    </body>
+</html>
+

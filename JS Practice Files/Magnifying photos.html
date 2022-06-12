@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Magnifying photos</title>
+        <style>
+            .small
+            {
+                width : 200px;
+                height: 200px;
+                margin-left:20 px;
+            }
+        </style>
+        <script>
+            function showOriginalPhoto(e)
+            {
+                //if(document.getElementById('original'))
+				//removeOriginalPhoto()
+
+                var img= e.srcElement
+                var OrigImg=document.createElement('img')
+                OrigImg.src=img.src
+                OrigImg.style.width="600px";
+                OrigImg.style.height="400px";
+                OrigImg.style.zIndex="999";
+                OrigImg.style.position="absolute";
+                OrigImg.style.position.left=e.clientX;
+                OrigImg.style.position.top=e.clientY;
+                OrigImg.id="original";
+                document.body.appendChild(OrigImg);
+
+            }
+
+            function removeOriginalPhoto()
+            {
+                document.body.removeChild(document.getElementById('original'))
+            }
+        </script>
+    </head>
+    <body>
+        <img src="Waves.jpg" class="small" onmouseover="showOriginalPhoto(event)" onmouseout="removeOriginalPhoto()"/>
+        <img src="Baby.jpg" class="small" onmouseover="showOriginalPhoto(event)" onmouseout="removeOriginalPhoto()"/>
+        <img src="Piano.jpg" class="small" onmouseover="showOriginalPhoto(event)" onmouseout="removeOriginalPhoto()"/>
+
+    </body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>GCD</title>
+        <script>
+            function GCD()
+            {
+                var n1= document.getElementById("txt1").value
+                var n2= document.getElementById("txt2").value
+                /*var r
+                do {
+                    r=n1%n2
+                    n1=n2
+                    n2=r
+
+                } while (r!==0)
+                */
+                //alert(n1)
+                alert(recGCD(n1,n2))
+            }
+
+            function recGCD(n1,n2)
+            {
+                if (n1%n2==0)
+                    return n2
+                else
+                    return recGCD(n2,n1%n2)
+            }
+
+        </script>
+    </head>
+    <body>
+        <input type="text" id="txt1" />
+        <input type="text" id="txt2" />
+        <input type="button" value="gcd" onclick="GCD()"
+    </body>
+</html>

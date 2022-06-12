@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>TimeEvent</title>
+        <script>
+            var seconds;
+            function printMessage(){
+                document.getElementById('message').innerHTML=seconds+'seconds'
+                var d=new Date()
+                seconds=d.getSeconds()
+            }
+
+
+            function start(){
+                ID= window.setInterval(printMessage,1000);
+            }
+
+
+            
+            function stop(){
+                window.clearInterval(ID)
+            }
+
+        </script>
+    </head>
+    <body>
+        <button id='Str' onclick="start()"> Start</button>
+        <span id='message'></span>
+        <button id='stp' onclick="stop()"> Stop </button>
+
+
+    </body>
+</html>

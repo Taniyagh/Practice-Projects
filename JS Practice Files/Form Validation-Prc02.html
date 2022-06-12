@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Form Validation</title>
+        <script src="Prc02.js"></script>
+        <link rel="stylesheet" href="Prc02.css">
+    </head>
+    <body>
+        <h1>Login Information</h1>
+        <form action="welcome.html" onsubmit="return Validate()">
+            <input type="text" id="username" placeholder="username"/>
+            <lable id="usError" style="color:red ; visibility:hidden">Invalid username</lable>
+            <br /> <br />
+            <input type="password" id="password" placeholder="password"/>
+            <lable id="passError" style="color:red ; visibility:hidden">Invalid password</lable>
+            <br /> <br />
+            <input type="submit" value="login" />
+        </form>
+        <div id="message" style="color:red;"></div>
+    </body>
+</html>

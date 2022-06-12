@@ -1,0 +1,30 @@
+﻿<html>
+	<head>
+		<script type="text/javascript">	
+		function Factorial()
+		{
+			var n=document.getElementById('txtnum1').value
+			var f=1; 
+			for(i=n; i>1; --i)
+			{
+				f*=i; 
+			}
+			//alert(recFactorial(n))
+			alert(f)
+		}
+		/*function recFactorial(k)
+		{
+			if (k==0|| k==1)
+				return 1;
+			else
+				return k*recFactorial(k-1);
+		}*/
+		
+		</script>
+	</head>
+	
+	<body>
+		<input type="text"	id="txtnum1"/>
+		<input type="button" value="Calculate Factorial" onclick="Factorial()"/>
+	</body>
+</html>

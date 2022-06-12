@@ -1,0 +1,38 @@
+﻿*{
+	box-sizing:border-box;
+}
+body
+{	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align:center;
+	margin:0;
+	flex-direction:coloumn; 
+	font-size:18px;
+	min-height:100vh;
+	font-weight:bold;
+}
+button{
+	background-color:blue;
+	color:#000000;
+	padding:1rem; 
+	border-radius:5px;
+	border:none;
+}
+#container{
+	position:fixed;
+	right:10px;
+	botton:10px;
+
+}
+.Notif{
+	display:flex;
+	background-color:pink;
+	padding:2rem;
+	color:black;
+	border-radius:2px;
+	margin:2px;
+	width: 250px;
+	height:5px;
+}

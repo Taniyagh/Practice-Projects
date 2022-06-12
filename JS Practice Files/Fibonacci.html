@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Fibonacci</title>
+        <script>
+            function Fibonacci()
+            {
+                var n= document.getElementById("txt1").value
+                var fibs= new Array()
+                fibs[1]=1; 
+                fibs[2]=1; 
+                for (var i=3; i<=n; i++)
+                {
+                    fibs[i]=fibs[i-1]+fibs[i-2]
+                }
+                alert(fibs[n])
+                //alert(recFibo(n))
+            }
+
+            /*function recFibo(n)
+            {
+                if (n==1 || n==2)
+                    return 1
+                else
+                    return(recFibo(n-1)+recFibo(n-2))
+            }*/
+        </script>
+
+    </head>
+    <body>
+        <input type="text" id="txt1"/>
+        <input type="button" value="Fibonacci" onclick="Fibonacci()"/>
+    </body>
+</html>
