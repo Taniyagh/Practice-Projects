@@ -1,0 +1,31 @@
+import React, { Component } from 'react';
+import { LoginContext } from '../Context/loginContext';
+import { ThemeContext } from '../Context/ThemeContext';
+class BookList extends Component {
+    // static contextType = ThemeContext
+    render() {
+        return (
+            <LoginContext.Consumer>{(loginContext) => (
+                <ThemeContext.Consumer>{(context) => {
+                    const { isLight, dark, Light } = context;
+                    const Theme = isLight ? Light : dark;
+                    console.log(context, Theme)
+                    return (
+                        <nav className='book-list'>
+                            <ul style={{ background: Theme.bg, color: Theme.text }}>
+                                <li style={{ background: Theme.item }}>چشمهایش</li>
+                                <li style={{ background: Theme.item }}>سووشون</li>
+                                <li style={{ background: Theme.item }}>معلم پیانو</li>
+                            </ul>
+                        </nav>
+                    )
+                }}
+                </ThemeContext.Consumer>
+            )}
+            </LoginContext.Consumer>
+
+        );
+    }
+}
+
+export default BookList;
