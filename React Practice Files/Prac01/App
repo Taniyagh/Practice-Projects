@@ -1,0 +1,43 @@
+// import Hello from './Components/HelloWorld.js';
+import './App.css';
+// import Counter from './Components/Counter.js'
+// import Welcome from './Components/Welcome.js';
+// import ClassClick from './Components/classClick.js';
+// import FunctionClick from './Components/FunctionClick.js';
+// import UserGreeting from './Components/UserGreeting.js';
+// import NameList from './Components/NameList.js'
+// import Form from './Components/Form';
+// import Inline from './Components/Inline';
+// import StyleSheet from './Components/StyleSheet';
+// import './appStyle.css';
+// import styles from './appStyle.module.css';
+import {Route, BrowserRouter as Router, Switch, Link} from 'react-router-dom'
+import Home from './Pages/Home';
+import About from './Pages/About';
+
+
+function App() {
+  return (
+      <Router>
+          <div className='App'>
+            <nav>
+              <ul>
+                <li><Link to='/'>HomePage</Link></li>
+                <li><Link to='/about'>About</Link></li>
+              </ul>
+            </nav>
+            <p>
+              Let's add routing!
+            </p> 
+            <Switch>
+              <Route path='/' component={Home}/>
+              <Route path='/about' component={About}/>
+            </Switch>            
+          </div>
+      </Router>
+  );
+}
+
+export default App;
+
+
