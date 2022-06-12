@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>DOMPractice</title>
+        <script>
+            var selectedPerson;
+            function AddPerson(btn)
+            {
+                var fName=document.getElementById('txt1').value
+                var lName=document.getElementById('txt2').value
+
+                if (btn.value=="Add Person")
+                {
+                    var person=document.createElement('tr')      //creating tr
+                    person.onmouseover=function(){this.style.backgroundColor="pink"}
+                    person.onmouseout=function(){this.style.backgroundColor="white"}
+
+                    var chkcell=document.createElement('td')
+                    chkcell.innerHTML="<input type='checkbox' onclick='chk_click(this)'/>"
+
+
+                    var fcell=document.createElement('td')       //creating td for first name
+                    var fnNode=document.createTextNode(fName)    //creating td text node for first name
+                    fcell.appendChild(fnNode)                    //creating the family relationship between td and its text node
+
+                    var lcell=document.createElement('td')       //creating td for last name
+                    var lnNode=document.createTextNode(lName)    //creating td text node for last name
+                    lcell.appendChild(lnNode)                    //creating the family relationship between td and its text node
+
+                    var delLink=document.createElement('a')
+                    delLink.innerHTML='Delete'  
+                    delLink.href='#'
+                    //delLink.onclick=function(){deletePerson(event)}     //Using event to detect who is parent
+                    //delLink.onclick=function(){deletePerson2(this)}
+                    delLink.onclick=function(){deletePerson3(person)}
+
+                    var EdLink=document.createElement('a')
+                    EdLink.innerHTML='Edit' 
+                    EdLink.href='#'
+                    EdLink.onclick=function (){editPerson(person)}
+
+                    var sep=document.createTextNode(' | ')
+                    var opCell=document.createElement('td')
+     
+                    opCell.appendChild(delLink)
+                    opCell.appendChild(sep)
+                    opCell.appendChild(EdLink)
+
+                    person.appendChild(chkcell)                 //creating the family relationship between td and tr
+                    person.appendChild(fcell)                   
+                    person.appendChild(lcell)                   
+                    person.appendChild(opCell)                  
+
+                    document.getElementById('tblPerson').appendChild(person)    //creating the family relationship between tr and table
+                }
+                else
+                {
+                    selectedPerson.childNodes[1].innerHTML=fName
+                    selectedPerson.childNodes[2].innerHTML=lName
+                    selectedPerson.style.backgroundColor="white"
+                    btn.value="Add Person"
+                }
+            }
+
+            function deletePerson(e)
+            {
+                var pers=e.srcElement.parentNode.parentNode
+                document.getElementById('tblPerson').removeChild(pers)
+            }
+
+            function deletePerson2(link)
+            {
+                var pers=link.parentNode.parentNode
+                document.getElementById('tblPerson').removeChild(pers)
+            }
+            
+            function deletePerson3(person)
+            {
+                document.getElementById('tblPerson').removeChild(person)
+            }
+
+            function editPerson(person)
+            {   
+                selectedPerson=person
+                person.style.backgroundColor="orange"
+                //document.getElementById('txt1').value=person.childNodes[0].innerHTML
+                //document.getElementById('txt2').value=person.childNodes[1].innerHTML
+                document.getElementById('btn').value='Modify'
+                
+            }
+
+            function chk_All(chk)
+            {
+                var tbl=document.getElementById('tblPerson')
+                if(chk.checked)
+                {
+                    for (var i=1;i<=tbl.childNodes.length;i++)
+                    tbl.childNodes[i].childNodes[0].childNodes[0].checked="checked"
+                }
+                    
+                else
+                {
+                    for (var i=1;i<=tbl.childNodes.length;i++)
+                    tbl.childNodes[i].childNodes[0].childNodes[0].checked="" 
+                }
+                    
+            }
+
+            function chk_click(chk)
+            {
+                var tbl=document.getElementById('tblPerson')
+                var boxes=tbl.getElementsByTagName('input')
+                if (!chk.checked)
+                    {
+                    document.getElementById('chkAll').checked=""
+                    }            
+                else 
+                {
+                    for (var i=1;i<boxes.length;++i)
+                        if (boxes[i].checked)
+                            continue
+                        else
+                            break
+                }
+                if (i==boxes.length)
+                     document.getElementById('chkAll').checked="checked"
+            }
+
+            function DeleteSelected()
+            {
+                var tbl=document.getElementById('tblPerson')
+                var boxes=tbl.getElementsByTagName('input')
+
+                for(var i=1; i<boxes.length;)
+                    if (tbl.childNodes[i].childNodes[0].childNodes[0].checked)
+                        tbl.removeChild(tbl.childNodes[i])
+                    else
+                    ++i
+
+            }
+        </script>
+    </head>
+    <body>
+        First Name<input type="text" id="txt1"/>
+        Last Name<input type="text" id="txt2"/>
+        <input type="button" id= "btn" value="Add Person" onclick="AddPerson(this)">
+        <input type="button" value="Delete" onclick="DeleteSelected()">
+        <hr />
+        <table id='tblPerson'align="center" border="1" margin="0" padding="0" width="420" >
+            <tr>
+                <th><input type="checkbox" id="chkAll" onclick="chk_All(this)"/></th><th>First Name</th><th>Last Name</th><th>Operations</th>
+            </tr>
+        </table>
+    </body>
+</html>
